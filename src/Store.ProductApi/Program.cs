@@ -3,7 +3,6 @@ using Bogus;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddApplicationMonitoring();
 
 var app = builder.Build();
 
@@ -30,5 +29,5 @@ app.Run();
 public class Product
 {
     public Guid ProductId => Guid.NewGuid();
-    public string ProductName { get; set; }
+    public string? ProductName { get; set; }
 }

@@ -3,8 +3,7 @@ using Microsoft.Extensions.Caching.Memory;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddMemoryCache(); // we'll use cache to simulate storage
-builder.Services.AddApplicationMonitoring();
+builder.Services.AddMemoryCache();
 
 var app = builder.Build();
 

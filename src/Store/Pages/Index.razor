@@ -40,10 +40,6 @@
         if (!_memoryCache.TryGetValue(cacheKey, out tmp))
         {
             var products = await _storeBackendClient.GetProducts();
-            foreach (var product in products)
-            {
-                product.Quantity = await _storeBackendClient.GetInventory(product.ProductId);
-            }
             _products = products.ToList();
             _memoryCache.Set<Product[]>(cacheKey, _products.ToArray());
             tmp = _products.ToArray();

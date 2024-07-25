@@ -9,7 +9,6 @@ builder.Services.AddHttpClient("Products", (httpClient) => httpClient.BaseAddres
 builder.Services.AddHttpClient("Inventory", (httpClient) => httpClient.BaseAddress = new Uri(builder.Configuration.GetValue<string>("InventoryApi")));
 builder.Services.AddScoped<IStoreBackendClient, StoreBackendClient>();
 builder.Services.AddMemoryCache();
-builder.Services.AddApplicationMonitoring();
 
 var app = builder.Build();
 
@@ -28,8 +27,8 @@ app.Run();
 
 public class Product
 {
-    public string ProductId { get; set; }
-    public string ProductName { get; set; }
+    public string? ProductId { get; set; }
+    public string? ProductName { get; set; }
     public int Quantity { get; set; }
 }
 
